@@ -3,6 +3,7 @@
 **One sentence:** A deterministic candidate screening workspace and persistent D1 audit log that helps high-volume campus recruiters verify entry-level engineering eligibility in under 5 seconds per applicant without ATS keyword-density bias.
 
 **Deployed:** https://mgt3745-final.kdotll.workers.dev/entries
+
 **Status:** Working — live Cloudflare Worker + D1 persistence (`mgt3745-entries`), deterministic 4-criterion knockout gate, and real-time search/status filtering are deployed and verified.  
 **Hours spent:** 14
 

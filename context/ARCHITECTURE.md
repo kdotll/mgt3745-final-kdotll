@@ -5,8 +5,8 @@ flowchart LR
   Browser["Browser (Web Pages: index.html)"]
   Worker["Cloudflare Worker (Edge API)"]
   D1[("Cloudflare D1 (SQLite)")]
-  Browser -->|POST /entries, GET /entries| Worker
-  Worker <-->|Parameterized SQL .bind()| D1
+  Browser -->|"POST /entries, GET /entries"| Worker
+  Worker <-->|"Parameterized SQL .bind()"| D1
 ```
 
 ## Decisions
