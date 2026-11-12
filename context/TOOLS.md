@@ -1,12 +1,15 @@
 # TOOLS.md
 
-| Tool | Role | Boundary crossed | Where the key lives | Service or model | Checked against vendor page | Owner |
-|---|---|---|---|---|---|---|
-| Cloudflare Workers | Compute & Edge API | Browser -> Worker | None (Edge execution) | Workers Bundled (Free) | 11-09-2026 | Kenneth Riley II |
-| Cloudflare D1 | Relational Storage | Worker -> D1 | `wrangler.toml` binding | SQLite Edge DB (Free) | 11-09-2026 | Kenneth Riley II |
-| Google Gemini API | AI Gateway Proxy | Worker -> Gemini | `GEMINI_API_KEY` (Worker Secret) | `gemini-2.5-flash` | 11-09-2026 | Kenneth Riley II |
-| GitHub | Version Control & Hosting | Local -> GitHub | SSH / Codespaces Token | GitHub Free | 11-09-2026 | Kenneth Riley II |
-| Bolt.new | UI Scaffolding Prototype | Browser -> Bolt | Session Auth | Bolt Free Tier | 10-15-2026 | Kenneth Riley II |
+# Tools
+
+| Tool | Purpose | Ring | Checked on | Limit or price | Exit |
+|---|---|---|---|---|---|
+| Cloudflare Workers & D1 | Edge API runtime & SQLite persistence (`mgt3745-final`) | Adopt | 2026-11-12 | Free tier: 100k req/day; 500 MB storage (`$0/mo`) | Migrate standard Fetch API routes & `.sql` dump to Deno Deploy / Turso (~3 hrs) |
+| `wrangler` (`4.161.0`) | CLI & local dev/deploy toolchain (`devDependencies` only) | Adopt | 2026-11-12 | Free CLI (`$0/mo`); `0` npm audit vulnerabilities | Standard Node/Deno CLI or Cloudflare REST API (~2 hrs) |
+| Node.js (`node:test`) | Built-in zero-dependency unit & eval test runner | Adopt | 2026-11-12 | Free / open-source MIT runtime (`$0/mo`) | Standard TAP/assertion runner swap (~1 hr) |
+| Google Gemini API (`gemini-2.5-flash`) | Optional non-PII rubric parsing (excluded from knockout gate) | Trial | 2026-11-12 | Free tier: 15 RPM / 1,500 RPD (`$0/mo`) | Deterministic JS regex/keyword parser (~1 hr) |
+| GitHub & Codespaces | Source control, commit history, & dev environment | Adopt | 2026-11-12 | Free tier (`$0/mo`) | Mirror Git remote to GitLab or Bitbucket (~1 hr) |
+| Bolt.new | Static HTML/CSS layout scaffolding (prototyping only) | Assess | 2026-11-12 | Free tier daily token cap (`$0/mo`) | Zero runtime dependency; static files live directly in repo (0 hrs) |
 
 ## Trust Boundaries
 Every service in the table above is a Trust Boundary crossing. One row per external service this repository depends on. Never put a credential in this file—a key, token, or password anywhere in the repository is graded as a security failure regardless of the rest.
