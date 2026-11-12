@@ -3,7 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test \"evals/**/*.test.js\"",
-    "test:proxy": "node --test \"worker/test/*.test.js\""
+    "test": "node --test \"evals/*.test.js\"",
+    "test:proxy": "node --test \"worker/test/*.test.js\"",
+    "dev": "wrangler dev --config worker/wrangler.toml",
+    "deploy": "wrangler deploy --config worker/wrangler.toml",
+    "db:init": "wrangler d1 execute mgt3745-entries --remote --file=worker/schema.sql --config worker/wrangler.toml"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
   }
 }

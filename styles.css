@@ -1,0 +1,136 @@
+/* Presentation only. Values match context/DESIGN.md and context/STYLE.md */
+:root {
+  --color-ink: #111827;
+  --color-paper: #f8fafc;
+  --color-background: #f4f6f9;
+  --color-primary: #12263a;
+  --color-accent: #1d4ed8;
+  --color-success: #1b8036;
+  --color-warning: #b91c1c;
+  --color-border: #d1d5db;
+  --font-body: "Inter", "Helvetica", system-ui, sans-serif;
+  --space-unit: 8px;
+  --radius-card: 4px;
+}
+
+body {
+  font-family: var(--font-body);
+  max-width: 1120px;
+  margin: calc(var(--space-unit) * 5) auto;
+  padding: 0 calc(var(--space-unit) * 2);
+  background: var(--color-background);
+  color: var(--color-ink);
+  line-height: 1.5;
+}
+
+form {
+  background: var(--color-paper);
+  padding: calc(var(--space-unit) * 3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  margin-bottom: calc(var(--space-unit) * 3);
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-top: calc(var(--space-unit) * 1.5);
+}
+
+input,
+select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--space-unit);
+  margin-top: calc(var(--space-unit) * 0.5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  font: inherit;
+  color: var(--color-ink);
+  background: var(--color-paper);
+}
+
+button {
+  margin-top: calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 1.25) calc(var(--space-unit) * 2.25);
+  background: var(--color-primary);
+  color: var(--color-paper);
+  border: none;
+  border-radius: var(--radius-card);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#candidate-list {
+  list-style: none;
+  padding: 0;
+  margin-top: calc(var(--space-unit) * 2);
+}
+
+#candidate-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: calc(var(--space-unit) * 1.5);
+  background: var(--color-paper);
+  border: 1px solid var(--color-border);
+  padding: calc(var(--space-unit) * 1.5);
+  margin-bottom: var(--space-unit);
+  border-radius: var(--radius-card);
+}
+
+.badge-eligible {
+  background: var(--color-success);
+  color: var(--color-paper);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-card);
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.badge-ineligible {
+  background: var(--color-warning);
+  color: var(--color-paper);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-card);
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+#empty-state {
+  color: var(--color-ink);
+  margin-top: calc(var(--space-unit) * 2);
+}
+
+#form-status {
+  margin-top: var(--space-unit);
+  min-height: 1.4em;
+  font-weight: bold;
+}
+
+#filter-controls {
+  display: flex;
+  gap: calc(var(--space-unit) * 2);
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-top: calc(var(--space-unit) * 2);
+  padding: calc(var(--space-unit) * 1.5);
+  background: var(--color-paper);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+
+#filter-controls > div {
+  flex: 1 1 240px;
+}
+
+#filter-controls label {
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+}
+
+#filter-controls input,
+#filter-controls select {
+  margin-top: 0;
+}

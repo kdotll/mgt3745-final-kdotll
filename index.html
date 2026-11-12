@@ -1,5 +1,71 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Project name</title></head>
-<body><main><h1>Project name</h1><p>Replace this page with your product. GitHub Pages serves it from the repository root.</p></main></body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candidate Operational Knockout Gate</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <h1>Operational Knockout Gate</h1>
+    <p>Deterministic candidate intake, eligibility gate (F-01), D1 audit log (F-02), and real-time filtering (F-03).</p>
+    
+    <form id="candidate-form" novalidate>
+      <label for="candidate-name">Candidate Name</label>
+      <input id="candidate-name" name="candidateName" type="text" autocomplete="off" required>
+
+      <label for="degree-program">Degree Program</label>
+      <select id="degree-program" name="degreeProgram" required>
+        <option value="">Select Degree...</option>
+        <option value="Mechanical Engineering">Mechanical Engineering</option>
+        <option value="Electrical Engineering">Electrical Engineering</option>
+        <option value="Computer Science">Computer Science</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="grad-year">Graduation Year</label>
+      <input id="grad-year" name="gradYear" type="number" min="2024" max="2032" placeholder="e.g. 2027" required>
+
+      <label for="work-auth">U.S. Work Authorization</label>
+      <select id="work-auth" name="workAuth" required>
+        <option value="">Select Status...</option>
+        <option value="Yes">Authorized (Citizen / Permanent Resident)</option>
+        <option value="No">Requires Visa Sponsorship</option>
+      </select>
+
+      <label for="relocation">Willing to Relocate?</label>
+      <select id="relocation" name="relocation" required>
+        <option value="">Select Readiness...</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <button type="submit">Evaluate & Save Candidate</button>
+      <p id="form-error" role="alert"></p>
+    </form>
+
+    <p id="save-status" role="status" aria-live="polite"></p>
+
+    <div id="filter-controls">
+      <div>
+        <label for="search-input">Search by Name</label>
+        <input id="search-input" name="searchInput" type="search" placeholder="Type a candidate name..." autocomplete="off">
+      </div>
+      <div>
+        <label for="status-filter">Status Filter</label>
+        <select id="status-filter" name="statusFilter">
+          <option value="All">All</option>
+          <option value="Eligible">Eligible</option>
+          <option value="Ineligible">Ineligible</option>
+        </select>
+      </div>
+    </div>
+
+    <h2>Evaluated Applicants</h2>
+    <p id="empty-state">No candidate evaluations on record.</p>
+    <ul id="candidate-list" aria-label="Evaluated candidates"></ul>
+  </main>
+  <script src="app.js"></script>
+</body>
 </html>
